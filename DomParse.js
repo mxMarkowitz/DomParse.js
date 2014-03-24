@@ -1,3 +1,5 @@
+
+//Encodes html to avoid tripping automatic sql injection prevention methods
 function EncodeHTML(str){
     return String(str).replace(/&/g, '&amp;')
             		  .replace(/"/g, '&quot;')
@@ -6,6 +8,7 @@ function EncodeHTML(str){
             		  .replace(/>/g, '&gt;');
 };
 
+//Removes encoding used on HTML by various web services
 function DecodeHTML(str){
 	return String(str).replace(/&amp;/g, '&')
 					  .replace(/&quot;/g, '"')
@@ -13,11 +16,12 @@ function DecodeHTML(str){
 					  .replace(/&lt;/g, '<')
 					  .replace(/&gt;/g, '>');
 };
-
+//Converts white space line breaks to </br> 
 function Nl2br(str){
 	return String(str).replace(/<\r?\n/g, '</br>');
 };	
 
+//Converts </br> to white space line breaks
 function Br2nl(str){
 	return String(str).replace('</br>', '\n');
 };
